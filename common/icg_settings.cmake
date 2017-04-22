@@ -40,19 +40,12 @@ if(NOT GLFW_FOUND)
     message(ERROR " GLFW not found!")
 endif()
 
-#--- CMake extension to load GLUT
-find_package(GLUT REQUIRED)
-include_directories(${GLUT_INCLUDE_DIRS})
-add_definitions(${GLUT_DEFINITIONS})
-if(NOT GLUT_FOUND)
-    message(ERROR " GLUT not found!")
-endif()
-
 #--- GLEW (STATICALLY LINKED)
 find_package(GLEW REQUIRED)
 include_directories(${GLEW_INCLUDE_DIRS})
 link_directories(${GLEW_LIBRARY_DIRS})
 add_definitions(-DGLEW_STATIC)
+# message(STATUS "HERE " ${GLEW_LIBRARIES})
 
 #--- Wraps file deployments
 macro(target_deploy_file MYTARGET FILEPATH)
@@ -111,7 +104,11 @@ find_package(Eigen3 REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIRS})
 if(NOT EIGEN3_FOUND)
     message(ERROR " EIGEN not found!")
-endif()
+endif() 
+
+#--- Common headers/libraries for all the exercises
+include_directories(${CMAKE_CURRENT_LIST_DIR})
+SET(COMMON_LIBS ${OPENGL_LIBRARIES} ${GLFW_LIBRARIES} ${GLEW_LIBRARIES})
 
 #--- OpenCV (Optional!!)
 find_package(PkgConfig)
@@ -124,21 +121,11 @@ if(PKGCONFIG_FOUND)
     endif()
 endif()
 
-#--- Common headers/libraries for all the exercises
-include_directories(${CMAKE_CURRENT_LIST_DIR})
-SET(COMMON_LIBS ${OPENGL_LIBRARIES}
-                ${GLEW_LIBRARIES}
-                ${GLFW_LIBRARIES}
-                ${GLUT_LIBRARIES})
-SET(COMMON_DLLS ${GLUT_DLLPATH})
-
-#--- Addidional Tools
 #--- AntTweakBar
 find_package(AntTweakBar)
 if(ANTTWEAKBAR_FOUND)
     include_directories(${ANTTWEAKBAR_INCLUDE_DIR})
     list(APPEND COMMON_LIBS ${ANTTWEAKBAR_LIBRARY})
-    list(APPEND COMMON_DLLS ${ANTTWEAKBAR_DLLPATH})
     add_definitions(-DWITH_ANTTWEAKBAR)
 endif()
 

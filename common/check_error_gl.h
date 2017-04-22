@@ -12,6 +12,7 @@ static inline const char* ErrorString(GLenum error) {
   Case(GL_OUT_OF_MEMORY);
 #undef Case
   }
+
   return msg;
 }
 

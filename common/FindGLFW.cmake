@@ -19,15 +19,15 @@
 # - https://raw.github.com/progschj/OpenGL-Examples/master/cmake_modules/FindGLFW.cmake
 # 
 
-SET(BITS "")
+SET( BITS "" )
 
 IF (WIN32)
-    	IF( CMAKE_SIZEOF_VOID_P EQUAL 8 )
-        	SET( BITS "64") 
-	  	SET(LIBPATH ${CMAKE_SOURCE_DIR}/external/glfw/lib/x64)
-    	ELSE()
-	  	SET(LIBPATH ${CMAKE_SOURCE_DIR}/external/glfw/lib/win32)
-	ENDIF()
+    IF( CMAKE_SIZEOF_VOID_P EQUAL 8 )
+        SET( BITS "64") 
+		SET(LIBPATH ${CMAKE_SOURCE_DIR}/external/glfw/lib/x64)
+    ELSE()
+		SET(LIBPATH ${CMAKE_SOURCE_DIR}/external/glfw/lib/win32)
+    ENDIF()
 ELSE()
 	SET(LIBPATH ${CMAKE_SOURCE_DIR}/external/glfw/lib/x11)
 ENDIF()

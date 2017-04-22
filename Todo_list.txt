@@ -1,0 +1,14 @@
+shadow
+* do shader twice
+* understand view
+
+sky box: buggy
+
+multisampling: not done
+
+snow line: done
+
+generic object: not important
+mesh lib: not important
+shader lib: not important
+popular trees: not important

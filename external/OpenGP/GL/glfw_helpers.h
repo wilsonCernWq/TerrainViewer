@@ -129,7 +129,7 @@ inline float update_title_fps(std::string theWindowTitle = "NONE", float theTime
 {
     // Static values which only get initialised the first time the function runs
     static float t0Value       = glfwGetTime(); // Set the initial time to now
-    static int   fpsFrameCount = 0;             // Set the initial FPS frame count to 0
+    static int    fpsFrameCount = 0;             // Set the initial FPS frame count to 0
     static float fps           = 0.0;           // Set the initial FPS value to 0.0
     
     // Get the current time in seconds since the program started (non-static, so executed every time)

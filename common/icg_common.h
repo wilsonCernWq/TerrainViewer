@@ -1,9 +1,8 @@
 // Copyright (C) 2014 - LGG EPFL
-#ifndef _ICG_COMMON_H_
-#define _ICG_COMMON_H_
+#pragma once
 
 ///--- Load OpenGL here (cross platform)
-#include <GL/glew.h> ///< must be before glut
+#include <GL/glew.h> ///< must be before glfw
 #include <GL/glfw.h>
 
 ///--- Linux needs extensions for framebuffers
@@ -27,6 +26,7 @@ typedef Eigen::Matrix3f mat3;
 #include <OpenGP/GL/EigenOpenGLSupport3.h>
 /// We use a modified (to support OpenGL3) version of the Eigen OpenGL module 
 /// @see http://eigen.tuxfamily.org/dox/unsupported/group__OpenGLSUpport__Module.html
+// #include <Eigen/OpenGL3Support>
 
 /// On some OSs the exit flags are not defined
 #ifndef EXIT_SUCCESS
@@ -40,10 +40,10 @@ typedef Eigen::Matrix3f mat3;
 #include "OpenGP/GL/shader_helpers.h"
 
 ///--- Utilities to simplify glfw setup
-#include "OpenGP/GL/glfw_helpers.h"
+#include <OpenGP/GL/glfw_helpers.h>
 
 ///--- For mesh I/O we use OpenGP
-#include "OpenGP/Surface_mesh.h"
+#include <OpenGP/Surface_mesh.h>
 
 ///--- GL Error checking
 #include "check_error_gl.h"
@@ -51,4 +51,3 @@ typedef Eigen::Matrix3f mat3;
 ///--- These namespaces assumed by default
 using namespace std;
 using namespace opengp;
-#endif // _ICG_COMMON_H_

@@ -14,8 +14,8 @@ namespace opengp{
 inline GLuint compile_shaders(const char * vshader, 
                        const char * fshader, 
                        const char * gshader = NULL, 
-                       const char* tcshader = NULL,
-                       const char* teshader = NULL) {
+                       const char* tcshader=NULL, 
+                       const char* teshader=NULL) {
     const int SHADER_LOAD_FAILED = 0;
     GLint Success = GL_FALSE;
     int InfoLogLength;
