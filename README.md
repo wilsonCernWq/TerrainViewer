@@ -1,3 +1,17 @@
 # TerrainViewer
 
-A real-time interactive program to generate and render procedural terrain nicely, based on an existing course project done in ICG2015 class of EPFL
+This is a procedural terrain rendering program using fractal Brownian Motion (fBm)
+
+## Implemented Features
+
+* GPU procedural terrain generated using fBm and Perlin noise. 
+* Soft shadow using Possion sampling
+* Refletive water effect (see epfl-2015-submit branch)
+* Tessellated LOD (Geometry LOD)
+* Texture LOD
+
+## Screen Shots
+![alt tag](screenshot1.png)
+![alt tag](screenshot2.png)
+
+## Implementation (To be completed)
