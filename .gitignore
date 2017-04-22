@@ -1,3 +1,7 @@
-# ignore folder #
-
-build/
+build*/
+*/build*/
+vsbuild*/
+*/vsbuild*/
+cmake-build*/
+*.zip
+*.tar.gz
