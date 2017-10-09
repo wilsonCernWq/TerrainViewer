@@ -7,7 +7,6 @@
 
 #include "ball/ball.h"
 #include "ball/trackball.h"
-#include "ball/arcball.h"
 
 #include "object/object_datatype.h"
 #include "object/object_abstract.h"

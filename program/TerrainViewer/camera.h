@@ -17,9 +17,9 @@ namespace icg {
 		//! rotational matrix
 		Ball *ball = nullptr;
 		//! initial information
-		cy::Point3f init_position = cy::Point3f(30.0f, 35.0f, -20.0f);
+		cy::Point3f init_position = cy::Point3f(30.0f, 0.0f, 0.0f);
 		cy::Point3f init_focus = cy::Point3f(0.0f, 0.0f, 0.0f);
-		cy::Point3f init_up = cy::Point3f(-0.6f, 0.7f, 0.3f);
+		cy::Point3f init_up = cy::Point3f(0.0f, 1.0f, 0.0f);
 		//! current information
 		cy::Point3f current_position;
 		cy::Point3f current_focus;
@@ -43,7 +43,7 @@ namespace icg {
 		//! Constructor
 		Camera(CameraMode mode = PERSPECTIVE) { 
 			this->mode = mode;
-			this->ball = new Arcball(&this->view);
+			this->ball = new Trackball();
 		}
 		//!
 		//! Destructor

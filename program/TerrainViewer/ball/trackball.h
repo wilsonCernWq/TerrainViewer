@@ -16,9 +16,8 @@ namespace icg {
     //!
     class Trackball : public Ball {
     private:
-        Ball* world = nullptr;
         float radius = 1.0f;
-        bool flag_inverse = false;
+        bool flag_inverse = true;
         cy::Matrix4f matrix = cy::Matrix4f::MatrixIdentity();
         cy::Matrix4f matrix_prev = cy::Matrix4f::MatrixIdentity();
         cy::Point3f position = cy::Point3f(0.0f, 0.0f, 0.0f);
@@ -26,7 +25,7 @@ namespace icg {
     public:
         //! Constructor
         //! \param world_camera: the reference camera used to adjust screen rotation
-        Trackball(Ball* world_camera) { world = world_camera; }
+        Trackball() = default;
 
         //! SetRadius
         //! \param r set trackball radius
@@ -50,11 +49,9 @@ namespace icg {
           // get direction
           position = proj2surf(x, y);
           cy::Point3f dir = (position_prev.Cross(position)).GetNormalized();
-          // modify
-          if (world != nullptr) {
-            auto inverse = world->Matrix().GetInverse();
-            dir = cy::Point3f(inverse * cy::Point4f(dir, 0.0f));
-          }
+          // modify	  
+	  float tx = dir.x, ty = dir.y, tz = dir.z;
+	  dir.z = -tx; dir.y = ty; dir.x = tz;
           dir = flag_inverse ? -dir : dir;
           // compute rotation angle
           float product_dot = position_prev.Dot(position);
@@ -68,7 +65,7 @@ namespace icg {
           else { // compute rotation
             rotation.SetRotation(dir, static_cast<float>(acos(angle)));
           }
-          matrix = rotation * matrix_prev;
+          matrix = matrix_prev * rotation;
         }
 
         cy::Matrix4f Matrix()
