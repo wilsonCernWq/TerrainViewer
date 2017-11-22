@@ -6,7 +6,7 @@ This is a procedural terrain rendering program using fractal Brownian Motion (fB
 
 * GPU procedural terrain generated using fBm and Perlin noise. 
 * Soft shadow using Possion sampling
-* Refletive water effect (see epfl-2015-submit branch)
+* Reflective water effect (see epfl-2015-submit branch)
 * Tessellated LOD (Geometry LOD)
 * Texture LOD
 
